@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <h1>Home Page</h1>
+    <center>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="">Name:</label>
+            <input type="text" name="name" id=""><br><br>
+
+            <label for="">Course:</label>
+            <input type="text" name="course" id=""><br><br>
+
+            <label for="">Image</label>
+            <input type="file" name="pic" id=""> <br><br>
+
+            <button type="submit">SUBMIT</button>
+        </form>
+    </center>
+
+    <center>
+        {% for i in data %}
+        {{i.name}} // {{i.course}} // <img src="{{i.image.url}}" alt="" style="height: 200px;width: 600px;"> <br>
+        {% endfor %}
+    </center>
+{% endblock %}
